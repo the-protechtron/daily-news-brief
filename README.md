@@ -50,7 +50,7 @@ Use valid `http://` or `https://` RSS URLs. A bad feed is logged and skipped; an
 | `RESEND_KEY` | Yes | Resend API key |
 | `MAIL_TO` | Yes | Digest recipient |
 | `LLM_API_KEY` | No | Groq API key for curation |
-| `GROQ_MODEL` | No | Groq model; defaults to `llama-3.3-70b-versatile` |
+| `GROQ_MODEL` | No | Groq model; defaults to `openai/gpt-oss-20b` |
 | `MAIL_FROM` | No | Resend sender; defaults to `Daily Digest <onboarding@resend.dev>` |
 | `DIGEST_TIMEZONE` | No | Date shown in the subject; defaults to `Asia/Kolkata` |
 

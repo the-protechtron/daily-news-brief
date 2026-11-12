@@ -61,7 +61,7 @@ def curate(news, key):
                 "https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {key}"},
                 json={
-                    "model": os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"),
+                    "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"),
                     "temperature": 0.3,
                     "max_tokens": 1500,
                     "messages": [
