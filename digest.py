@@ -65,7 +65,7 @@ def curate(news, key):
                     "temperature": 0.3,
                     "max_tokens": 1500,
                     "messages": [
-                        {"role": "system", "content": "Curate a daily news digest. Return only a JSON object with keys Tech, PM, Consulting. Each value is an array of the top 3-5 items available (or fewer if fewer exist). Each item has title (one-line headline), why (one sentence on why it matters), and link. Copy links exactly from the input. Never invent items or links."},
+                        {"role": "system", "content": "Curate a daily news digest. Return only a JSON object with exactly the input's category keys. For each nonempty category, return exactly 3 items (or fewer only when fewer than 3 exist). Each item has title (12 words or fewer), why (one sentence of 20 words or fewer), and link. Copy links exactly from the input. Never invent items or links. No markdown or text outside the JSON object."},
                         {"role": "user", "content": json.dumps(candidates)},
                     ],
                 },
