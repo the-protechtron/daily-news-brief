@@ -1,0 +1,19 @@
+{
+  "Tech": [
+    "https://hnrss.org/frontpage",
+    "https://techcrunch.com/feed/",
+    "https://arstechnica.com/feed/",
+    "https://www.theverge.com/rss/index.xml"
+  ],
+  "PM": [
+    "https://www.lennysnewsletter.com/feed",
+    "https://www.producttalk.org/feed/",
+    "https://svpg.com/feed/",
+    "https://amplitude.com/feed"
+  ],
+  "Consulting": [
+    "https://www.mckinsey.com/Insights/rss.aspx",
+    "http://feeds.hbr.org/harvardbusiness/",
+    "https://managementconsulted.com/feed/"
+  ]
+}
