@@ -64,6 +64,9 @@ def curate(news, key):
                     "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
                     "temperature": 0.3,
                     "max_tokens": 1500,
+                    "reasoning_effort": "low",
+                    "include_reasoning": False,
+                    "response_format": {"type": "json_object"},
                     "messages": [
                         {"role": "system", "content": "Curate a daily news digest. Return only a JSON object with exactly the input's category keys. For each nonempty category, return exactly 3 items (or fewer only when fewer than 3 exist). Each item has title (12 words or fewer), why (one sentence of 20 words or fewer), and link. Copy links exactly from the input. Never invent items or links. No markdown or text outside the JSON object."},
                         {"role": "user", "content": json.dumps(candidates)},
