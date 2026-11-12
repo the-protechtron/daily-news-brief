@@ -87,7 +87,8 @@ def curate(news, key):
                         raise ValueError("Groq returned an invalid item")
             return result
         except Exception as exc:
-            print(f"Groq failed; using raw headlines: {exc}", flush=True)
+            detail = response.text[:500] if "response" in locals() else ""
+            print(f"Groq failed; using raw headlines: {exc}{': ' + detail if detail else ''}", flush=True)
             return {category: items[:limit] for category, items in news.items()}
     return news
 
