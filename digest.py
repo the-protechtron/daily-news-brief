@@ -109,8 +109,9 @@ def render(news):
 
 
 def main():
-    key, recipient = os.getenv("RESEND_KEY"), os.getenv("MAIL_TO")
-    if not key or not recipient:
+    key = os.getenv("RESEND_KEY")
+    recipients = [email.strip() for email in os.getenv("MAIL_TO", "").split(",") if email.strip()]
+    if not key or not recipients:
         print("RESEND_KEY and MAIL_TO are required", flush=True)
         return 1
     try:
@@ -128,14 +129,14 @@ def main():
         response = requests.post(
             "https://api.resend.com/emails",
             headers={"Authorization": f"Bearer {key}"},
-            json={"from": os.getenv("MAIL_FROM", "Daily Digest <onboarding@resend.dev>"), "to": [recipient], "subject": f"Daily Digest - {date}", "html": render(news)},
+            json={"from": os.getenv("MAIL_FROM", "Daily Digest <onboarding@resend.dev>"), "to": recipients, "subject": f"Daily Digest - {date}", "html": render(news)},
             timeout=30,
         )
         response.raise_for_status()
     except requests.RequestException as exc:
         print(f"Email failed: {exc}; response: {response.text if 'response' in locals() else 'none'}", flush=True)
         return 1
-    print(f"Digest sent to {recipient}", flush=True)
+    print(f"Digest sent to {', '.join(recipients)}", flush=True)
     return 0
 
 

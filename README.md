@@ -48,7 +48,7 @@ Use valid `http://` or `https://` RSS URLs. A bad feed is logged and skipped; an
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `RESEND_KEY` | Yes | Resend API key |
-| `MAIL_TO` | Yes | Digest recipient |
+| `MAIL_TO` | Yes | Comma-separated digest recipients |
 | `LLM_API_KEY` | No | Groq API key for curation |
 | `GROQ_MODEL` | No | Groq model; defaults to `openai/gpt-oss-120b` |
 | `MAIL_FROM` | No | Resend sender; defaults to `Daily Digest <onboarding@resend.dev>` |
